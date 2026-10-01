@@ -1,0 +1,48 @@
+Good Format Example:
+get_files_info_tool = {
+    "type": "function",
+    "function": {
+        "name": "get_files_info",
+        "description": "Lists files in the specified directory along with their sizes, constrained to the working directory.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "directory": {
+                    "type": "string",
+                    "description": "The directory to list files from, relative to the working directory. If not provided, lists files in the working directory itself."
+                }
+            }
+        },
+    }
+}
+
+Old Format Example 1:
+schema_get_files_info = types.FunctionDeclaration(
+    name="get_files_info",
+    description="Lists files in the specified directory along with their sizes, constrained to the working directory.",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "directory": types.Schema(
+                type=types.Type.STRING,
+                description="The directory to list files from, relative to the working directory. If not provided, lists files in the working directory itself.",
+            ),
+        },
+    ),
+)
+
+Old Format Example 2:
+schema_get_file_content = types.FunctionDeclaration(
+    name="get_file_content",
+    description="Read file contents",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file_path": types.Schema(
+                type=types.Type.STRING,
+                description="The file path to read content from",
+            ),
+        },
+    ),
+)
+"""
